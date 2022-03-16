@@ -1,0 +1,15 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Necrotic Client:jar">
+    <output-path>$PROJECT_DIR$/bin/artifacts/Necrotic_Client_jar</output-path>
+    <root id="archive" name="Necrotic Client.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="Necrotic Client" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/alertify4j.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/gson-2.2.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/commons-lang3-3.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/commons-lang3-3.4-javadoc.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
