@@ -1,23 +1,21 @@
-# Necrotic-Server
-This project targets JDK 8 and Java 8. We are targeting intellij. This client expects to connect to the server running on port 43594. 
+# Necrotic-Client
+This project targets JDK 8 and Java 8. We are targeting intellij. I have resolved the mouse issue introduced in Java 9 and newer. This client expects to connect to the server running on port 43594. 
 
 ## Follow these steps to get setup
 
 - [ ] Fork and then download this repo and [Necrotic-Server](https://github.com/NecroticPublic/Necrotic-Server/)
 - [ ] Download and install Intellij. 
 - [ ] Download the cache from [Mega](https://mega.nz/file/s8cwVLhC#NeGH0hPsVLJHzx8cTieYpd7jzUX-rvcifTu22Kw2UZo) or [Dropbox](https://www.dropbox.com/s/up31n4hfne0dqpd/NecroticCache.zip?dl=1).
-- [ ] Make 3 folders in your %userprofile% directory. Windows users can press Windows Key + R to open run, then type "*%userprofile*%" in the box.
+- [ ] Make a folder in your %userprofile% directory. Windows users can press Windows Key + R to open run, then type "*%userprofile*%" in the box.
 
 IE:
 
 ![Example run](https://i.imgur.com/0Z8wMJq.png)
 
-Make these folders exist: "NecroticCache", "NecroticClients", "NecroticSettings".
+Make the folder: "NecroticCache".
 
 For example, say your username was bob.
 - Bob/NecroticCache
-- Bob/NecroticClients
-- Bob/NecroticSettings
 
 ![Example of userprofile](https://i.imgur.com/Twmfc4u.png)
 
