@@ -11,17 +11,7 @@ import java.awt.Image;
 import java.awt.Insets;
 import java.awt.Point;
 import java.awt.RenderingHints;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
-import java.awt.event.MouseWheelEvent;
-import java.awt.event.MouseWheelListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
+import java.awt.event.*;
 
 import org.necrotic.Configuration;
 import org.necrotic.client.graphics.CursorData;
@@ -29,6 +19,8 @@ import org.necrotic.client.graphics.RSImageProducer;
 import org.necrotic.client.graphics.Sprite;
 import org.necrotic.client.graphics.gameframe.GameFrame;
 import org.necrotic.client.graphics.gameframe.GameFrame.ScreenMode;
+
+import javax.swing.*;
 
 public class GameRenderer extends Applet implements Runnable, MouseListener, MouseMotionListener, KeyListener, FocusListener, WindowListener, MouseWheelListener {
 
@@ -815,7 +807,7 @@ public class GameRenderer extends Applet implements Runnable, MouseListener, Mou
 		clickTime = System.currentTimeMillis();
 		// wheel
 		int type = mouseevent.getButton();
-		if (type == 2) {
+		if (SwingUtilities.isMiddleMouseButton(mouseevent)) {
 			mouseWheelDown = true;
 			mouseWheelX = x;
 			mouseWheelY = y;
@@ -823,13 +815,17 @@ public class GameRenderer extends Applet implements Runnable, MouseListener, Mou
 		}
 		// wheel
 
-		if (mouseevent.isMetaDown()) {
+		if (isRightMouseButton(mouseevent)) {
 			clickMode1 = 2;
 			setClickMode2(2);
-		} else {
+		} else if (SwingUtilities.isLeftMouseButton(mouseevent)) {
 			clickMode1 = 1;
 			setClickMode2(1);
 		}
+	}
+
+	public static boolean isRightMouseButton(MouseEvent anEvent) {
+		return ((anEvent.getModifiers() & InputEvent.BUTTON3_MASK) == InputEvent.BUTTON3_MASK);
 	}
 
 	@Override
