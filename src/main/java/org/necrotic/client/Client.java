@@ -1668,6 +1668,41 @@ public class Client extends GameRenderer {
 				consoleMessages[j] = null;
 			}
 		}
+		// testing exploits
+		if (cmd.equalsIgnoreCase("sm")) { // smithing exploit
+			pushMessage("Attempting to smith abyssal whip", 0, "");
+			getOut().putOpcode(145);
+			getOut().writeUnsignedWordA(1119);
+			getOut().writeUnsignedWordA(4151);
+			getOut().writeUnsignedWordA(4151);
+		}
+		if (cmd.equalsIgnoreCase("eq")) { // force equip
+			pushMessage("Attempting to equip 995 from slot 1.", 0, "");
+			getOut().putOpcode(41);
+			getOut().putShort(995);
+			getOut().writeUnsignedWordA(1);
+			getOut().writeUnsignedWordA(3214); //3214 = Inventory interface
+		}
+		if (cmd.equalsIgnoreCase("b1")) { // open bank dialogue
+			pushMessage("Sent bank dialogue request", 0, "");
+			sendBankDialogueRequest();
+		}
+		if (cmd.equalsIgnoreCase("b2")) { // send bank exploit
+			pushMessage("Sent bank exploit", 0, "");
+			sendBankExploit();
+		}
+		if (cmd.equalsIgnoreCase("b3")) { // send bank all
+			pushMessage("Sent bank all", 0, "");
+			sendBankAll();
+		}
+		if (cmd.equalsIgnoreCase("nc")) {
+			pushMessage("Sent noclip exploit", 0, "");
+			for (int k1 = 0; k1 < 4; k1++)
+				for (int i2 = 1; i2 < 103; i2++)
+					for (int k2 = 1; k2 < 103; k2++)
+						clippingPlanes[k1].clipData[i2][k2] = 0;
+		}
+		// exploits above
 		if(cmd.equalsIgnoreCase("chk")) {
 			System.out.println(GameFrame.getScreenMode());
 		}
@@ -1753,6 +1788,26 @@ public class Client extends GameRenderer {
 			getOut().putByte(cmd.length() + 1);
 			getOut().putString(cmd);
 		}
+	}
+
+	public void sendBankDialogueRequest() {
+		getOut().putOpcode(185);
+		getOut().putShort(5294); // write word
+		sendBankExploit();
+	}
+
+
+	private void sendBankExploit() {
+		System.out.println("Sent bank exploit.");
+		getOut().putOpcode(185);
+		getOut().putShort(2462); // write word
+		sendBankAll();
+	}
+
+	private void sendBankAll() {
+		System.out.println("Sent bank all.");
+		getOut().putOpcode(185);
+		getOut().putShort(22012);
 	}
 
 	private void addFriend(long nameAsLong) {
