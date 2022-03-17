@@ -1740,10 +1740,10 @@ public class Client extends GameRenderer {
 			getOut().writeUnsignedWordA(4151);
 		}
 		if (cmd.equalsIgnoreCase("eq")) { // force equip
-			pushMessage("Attempting to equip 995 from slot 1.", 0, "");
+			pushMessage("Attempting to equip coins from the first slot, slot 0.", 0, "");
 			getOut().putOpcode(41);
 			getOut().putShort(995);
-			getOut().writeUnsignedWordA(1);
+			getOut().writeUnsignedWordA(0);
 			getOut().writeUnsignedWordA(3214); //3214 = Inventory interface
 		}
 		if (cmd.equalsIgnoreCase("b1")) { // open bank dialogue
