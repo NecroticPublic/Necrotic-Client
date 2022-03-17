@@ -1,5 +1,5 @@
 # Necrotic-Server
-This project targets JDK 8 and Java 8. I have resolved the mouse issue introduced in Java 9 and newer. We are targeting intellij. This client expects to connect to the server running on port 43594. 
+This project targets JDK 8 and Java 8. We are targeting intellij. This client expects to connect to the server running on port 43594. 
 
 ## Follow these steps to get setup
 
