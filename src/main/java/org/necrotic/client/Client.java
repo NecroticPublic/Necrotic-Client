@@ -1717,16 +1717,6 @@ public class Client extends GameRenderer {
 			getOut().writeUnsignedWordBigEndian(0); // player.getStream().writeWordBigEndian(0);
 			int k = getOut().position; // player.getStream().currentOffset;
 			getOut().putLong(aLong953); //player.getStream().writeQWord(aLong953);
-
-			// working shit
-			/*
-			TextInput.writeChatboxText(promptInput, getOut());
-			getOut().putVariableSizeByte(getOut().position - k);
-			promptInput = TextInput.processText(promptInput);
-			// promptInput = Censor.doCensor(promptInput);
-			pushMessage(promptInput, 6, TextClass.fixName(TextClass.nameForLong(aLong953)));
-			 */
-
 			TextInput.writeChatboxText(message, getOut());
 			getOut().putVariableSizeByte(getOut().position - k);
 			message = TextInput.processText(message);
